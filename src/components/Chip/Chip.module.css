@@ -14,7 +14,7 @@
 .root::before {
 	content: "";
 	position: absolute;
-	inset: -7px 0;
+	inset: -8px 0;
 }
 
 .root[aria-pressed="true"] {
