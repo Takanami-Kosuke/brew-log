@@ -1,0 +1,54 @@
+.root {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-5);
+	/* 最後のカードが「＋」ボタンに隠れないようにする */
+	padding-bottom: calc(56px + var(--space-6));
+}
+
+.header {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+}
+
+.title {
+	font-size: var(--font-size-xl);
+	font-weight: 700;
+	line-height: 1.4;
+}
+
+.count {
+	color: var(--color-text-secondary);
+	font-size: var(--font-size-xs);
+}
+
+.list {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-3);
+}
+
+.empty {
+	padding-block: var(--space-10);
+	color: var(--color-text-secondary);
+	font-size: var(--font-size-sm);
+	text-align: center;
+}
+
+/* 「＋」ボタンを置く帯。レイアウトと同じ幅480pxの中の右下に固定する */
+.fabArea {
+	position: fixed;
+	inset-inline: 0;
+	bottom: var(--space-6);
+	display: flex;
+	justify-content: flex-end;
+	max-width: 480px;
+	margin-inline: auto;
+	padding-inline: var(--space-6);
+	pointer-events: none;
+}
+
+.fabArea > * {
+	pointer-events: auto;
+}

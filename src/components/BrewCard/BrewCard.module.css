@@ -1,0 +1,83 @@
+.root {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-3);
+	padding: var(--space-4);
+	border: 1px solid var(--color-border-default);
+	border-radius: var(--radius-lg);
+	background: var(--color-bg-surface);
+}
+
+.top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--space-3);
+}
+
+.titleGroup {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-1);
+	min-width: 0;
+}
+
+.title {
+	font-size: var(--font-size-lg);
+	font-weight: 700;
+	line-height: 1.5;
+}
+
+/* リンクは豆の名前だけ。押せる範囲はカード全体に広げる */
+.link::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: var(--radius-lg);
+}
+
+.link:focus-visible {
+	outline: none;
+}
+
+.link:focus-visible::after {
+	outline: 2px solid var(--color-border-focus);
+	outline-offset: 2px;
+}
+
+.meta {
+	color: var(--color-text-secondary);
+	font-size: var(--font-size-xs);
+	line-height: 1.5;
+}
+
+.score {
+	display: flex;
+	flex-shrink: 0;
+	align-items: center;
+	gap: var(--space-1);
+	font-family: var(--font-family-numeric);
+	font-size: var(--font-size-md);
+	font-weight: 500;
+	line-height: 1.4;
+}
+
+.star {
+	color: var(--color-status-rating);
+}
+
+.stats {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-2);
+}
+
+.stat {
+	padding: var(--space-1) var(--space-2);
+	border-radius: var(--radius-sm);
+	background: var(--color-bg-subtle);
+	color: var(--color-text-accent);
+	font-size: var(--font-size-xs);
+	line-height: 1.5;
+}
