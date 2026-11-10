@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Claude Code用のメモ（手元だけで使う）
+CLAUDE.md
