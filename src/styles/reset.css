@@ -1,0 +1,208 @@
+:where(*, ::after, ::before) {
+	box-sizing: border-box;
+	border-style: solid;
+	border-width: 0;
+}
+
+:where(html) {
+	line-height: 1.15;
+	-webkit-text-size-adjust: 100%;
+	-webkit-tap-highlight-color: transparent;
+}
+
+:where(body) {
+	margin: 0;
+}
+
+:where(main) {
+	display: block;
+}
+
+:where(address, blockquote, dl, figure, form, iframe, p, pre, table) {
+	margin: 0;
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+	font-size: inherit;
+	font-weight: inherit;
+	margin: 0;
+}
+
+:where(ol, ul) {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+:where(dt) {
+	font-weight: 700;
+}
+
+:where(dd) {
+	margin-left: 0;
+}
+
+:where(hr) {
+	box-sizing: content-box;
+	height: 0;
+	overflow: visible;
+	border-top-width: 1px;
+	margin: 0;
+	clear: both;
+	color: inherit;
+}
+
+:where(pre) {
+	font-family: monospace, monospace;
+	font-size: inherit;
+}
+
+:where(address) {
+	font-style: inherit;
+}
+
+:where(a) {
+	background-color: transparent;
+	text-decoration: none;
+	color: inherit;
+}
+
+:where(abbr[title]) {
+	text-decoration: underline dotted;
+}
+
+:where(b, strong) {
+	font-weight: initial;
+}
+
+:where(code, kbd, samp) {
+	font-family: monospace, monospace;
+	font-size: inherit;
+}
+
+:where(small) {
+	font-size: 100%;
+}
+
+:where(sub, sup) {
+	font-size: 100%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+:where(sub) {
+	bottom: -0.25em;
+}
+
+:where(sup) {
+	top: -0.5em;
+}
+
+:where(embed, iframe, img, object, svg) {
+	vertical-align: bottom;
+}
+
+:where(button, input, optgroup, select, textarea) {
+	-webkit-appearance: none;
+	appearance: none;
+	vertical-align: middle;
+	color: inherit;
+	font: inherit;
+	background: 0 0;
+	padding: 0;
+	margin: 0;
+	border-radius: 0;
+	text-align: inherit;
+	text-transform: inherit;
+}
+
+:where([type="button"], [type="reset"], [type="submit"], button) {
+	cursor: pointer;
+}
+
+:where([type="button"]:disabled, [type="reset"]:disabled, [type="submit"]:disabled, button:disabled) {
+	cursor: default;
+}
+
+:where(:-moz-focusring) {
+	outline: auto;
+}
+
+:where(select:disabled) {
+	opacity: inherit;
+}
+
+:where(option) {
+	padding: 0;
+}
+
+:where(fieldset) {
+	margin: 0;
+	padding: 0;
+	min-width: 0;
+}
+
+:where(legend) {
+	padding: 0;
+}
+
+:where(progress) {
+	vertical-align: baseline;
+}
+
+:where(textarea) {
+	overflow: auto;
+}
+
+:where([type="number"]::-webkit-inner-spin-button, [type="number"]::-webkit-outer-spin-button) {
+	height: auto;
+}
+
+:where([type="search"]) {
+	outline-offset: -2px;
+}
+
+:where([type="search"]::-webkit-search-decoration) {
+	-webkit-appearance: none;
+}
+
+:where(::-webkit-file-upload-button) {
+	-webkit-appearance: button;
+	font: inherit;
+}
+
+:where([type="number"]) {
+	-moz-appearance: textfield;
+}
+
+:where(label[for]) {
+	cursor: pointer;
+}
+
+:where(details) {
+	display: block;
+}
+
+:where(summary) {
+	display: list-item;
+}
+
+:where([contenteditable]:focus) {
+	outline: auto;
+}
+
+:where(table) {
+	border-color: inherit;
+	border-collapse: collapse;
+}
+
+:where(caption) {
+	text-align: left;
+}
+
+:where(td, th) {
+	font-weight: normal;
+	vertical-align: top;
+	padding: 0;
+}

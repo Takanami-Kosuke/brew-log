@@ -1,0 +1,83 @@
+/* ==========================================================================
+   Design Tokens
+   Figma「Coffee Brew Log - Design」の Variables と 1対1 で対応。
+   - Primitives : 生の値。コンポーネントからは直接使わない
+   - Semantic   : 役割ごとの値。コンポーネントはこの層だけを使う
+   ========================================================================== */
+
+:root {
+	/* ---------- Primitives / Color ---------- */
+	--primitive-brown-50: #f7f2ec;
+	--primitive-brown-100: #ede3d7;
+	--primitive-brown-200: #dcc8b2;
+	--primitive-brown-400: #a97f5a;
+	--primitive-brown-600: #7a5235;
+	--primitive-brown-800: #4a2f1e;
+	--primitive-brown-900: #2e1d13;
+
+	--primitive-neutral-0: #ffffff;
+	--primitive-neutral-50: #faf8f5;
+	--primitive-neutral-200: #e5dfd8;
+	--primitive-neutral-500: #857c74;
+	--primitive-neutral-700: #4d4540;
+	--primitive-neutral-900: #1f1a17;
+
+	--primitive-red-600: #b9443a;
+	--primitive-amber-400: #dfa041;
+	--primitive-green-600: #3f7d58;
+
+	/* ---------- Semantic / Color : 背景 ---------- */
+	--color-bg-base: var(--primitive-neutral-50);
+	--color-bg-surface: var(--primitive-neutral-0);
+	--color-bg-subtle: var(--primitive-brown-50);
+	--color-bg-muted: var(--primitive-brown-100);
+	--color-bg-accent: var(--primitive-brown-800);
+	--color-bg-accent-hover: var(--primitive-brown-900);
+
+	/* ---------- Semantic / Color : 文字 ---------- */
+	--color-text-primary: var(--primitive-neutral-900);
+	--color-text-secondary: var(--primitive-neutral-500);
+	--color-text-on-accent: var(--primitive-neutral-0);
+	--color-text-accent: var(--primitive-brown-600);
+	--color-text-danger: var(--primitive-red-600);
+
+	/* ---------- Semantic / Color : 枠線 ---------- */
+	--color-border-default: var(--primitive-neutral-200);
+	--color-border-strong: var(--primitive-brown-400);
+	--color-border-focus: var(--primitive-brown-600);
+
+	/* ---------- Semantic / Color : 状態・グラフ ---------- */
+	--color-status-rating: var(--primitive-amber-400);
+	--color-status-success: var(--primitive-green-600);
+	--color-chart-fill: var(--primitive-brown-400);
+	--color-chart-grid: var(--primitive-brown-100);
+
+	/* ---------- Spacing（番号 × 4px） ---------- */
+	--space-1: 4px;
+	--space-2: 8px;
+	--space-3: 12px;
+	--space-4: 16px;
+	--space-5: 20px;
+	--space-6: 24px;
+	--space-8: 32px;
+	--space-10: 40px;
+
+	/* ---------- Radius ---------- */
+	--radius-sm: 6px;
+	--radius-md: 12px;
+	--radius-lg: 16px;
+	--radius-full: 999px;
+
+	/* ---------- Typography ---------- */
+	--font-family-base: "Noto Sans JP", sans-serif;
+	--font-family-numeric: "Inter", sans-serif;
+
+	/* Figma の px 値を rem に換算（16px = 1rem）。ブラウザの文字サイズ設定に追従させるため */
+	--font-size-xs: 0.75rem; /* 12px */
+	--font-size-sm: 0.875rem; /* 14px */
+	--font-size-md: 1rem; /* 16px */
+	--font-size-lg: 1.125rem; /* 18px */
+	--font-size-xl: 1.375rem; /* 22px */
+	--font-size-2xl: 1.75rem; /* 28px */
+	--font-size-timer: 3.5rem; /* 56px */
+}
