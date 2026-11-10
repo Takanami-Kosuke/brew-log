@@ -1,23 +1,20 @@
+import { Route, Routes } from "react-router";
+import { AppLayout } from "./layouts/AppLayout/AppLayout";
+import { BrewDetailPage } from "./pages/BrewDetailPage";
+import { BrewFormPage } from "./pages/BrewFormPage";
+import { BrewListPage } from "./pages/BrewListPage";
+import { TimerPage } from "./pages/TimerPage";
+
 function App() {
 	return (
-		<main
-			style={{
-				fontFamily: "var(--font-family-base)",
-				padding: "var(--space-6)",
-				background: "var(--color-bg-base)",
-			}}>
-			<h1 style={{ fontSize: "var(--font-size-2xl)" }}>Brew Log</h1>
-			<p
-				style={{
-					fontFamily: "var(--font-family-numeric)",
-					padding: "var(--space-3) var(--space-5)",
-					borderRadius: "var(--radius-md)",
-					background: "var(--color-bg-accent)",
-					color: "var(--color-text-on-accent)",
-				}}>
-				2:30 / 240ml / 92℃
-			</p>
-		</main>
+		<Routes>
+			<Route element={<AppLayout />}>
+				<Route index element={<BrewListPage />} />
+				<Route path="brews/new" element={<BrewFormPage />} />
+				<Route path="brews/:id" element={<BrewDetailPage />} />
+				<Route path="timer" element={<TimerPage />} />
+			</Route>
+		</Routes>
 	);
 }
 

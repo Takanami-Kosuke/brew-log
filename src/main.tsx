@@ -4,9 +4,12 @@ import "./styles/tokens.css";
 import "./styles/reset.css";
 import "./styles/base.css";
 import App from "./App.tsx";
+import { BrowserRouter } from "react-router";
 
 createRoot(document.getElementById("root")!).render(
 	<StrictMode>
-		<App />
+		<BrowserRouter>
+			<App />
+		</BrowserRouter>
 	</StrictMode>,
 );

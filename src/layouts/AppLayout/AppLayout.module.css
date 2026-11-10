@@ -1,0 +1,10 @@
+.root {
+	max-width: 480px;
+	min-height: 100dvh;
+	margin-inline: auto;
+	background: var(--color-bg-base);
+}
+
+.main {
+	padding: var(--space-5) var(--space-6);
+}
