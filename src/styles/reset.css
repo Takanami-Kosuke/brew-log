@@ -1,3 +1,12 @@
+/*
+ * リセットCSS
+ * destyle.css v4.0.1 をもとに、すべてのセレクタを :where() で囲んで詳細度を0にしたもの。
+ * こうすると、コンポーネント側の CSS が必ずこちらより優先される。
+ *
+ * destyle.css — https://github.com/nicolas-cusan/destyle.css
+ * MIT License, Copyright (c) 2019 Nicolas Cusan
+ */
+
 :where(*, ::after, ::before) {
 	box-sizing: border-box;
 	border-style: solid;

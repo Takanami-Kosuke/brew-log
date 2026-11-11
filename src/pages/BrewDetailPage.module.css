@@ -95,6 +95,11 @@
 	line-height: 1.7;
 }
 
+/* グラフを読み込むあいだ、同じ高さの場所を空けておく（読み込み後に画面がずれないように） */
+.chartPlaceholder {
+	height: 250px;
+}
+
 .memo {
 	font-size: var(--font-size-sm);
 	line-height: 1.7;
