@@ -1,16 +1,21 @@
 import { Star } from "lucide-react";
-import { useState } from "react";
+import { Suspense, lazy, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { Button, ButtonLink } from "../components/Button/Button";
 import { ConfirmDialog } from "../components/ConfirmDialog/ConfirmDialog";
 import { NotFound } from "../components/NotFound/NotFound";
 import { Section } from "../components/Section/Section";
-import { TasteRadarChart } from "../components/TasteRadarChart/TasteRadarChart";
 import { VisuallyHidden } from "../components/VisuallyHidden/VisuallyHidden";
 import { useBrews } from "../hooks/useBrews";
 import { averageScore, formatBrewTime, formatDate, formatRatio } from "../lib/format";
 import { BREW_METHOD_LABELS, GRIND_SIZE_LABELS, ROAST_LEVEL_LABELS } from "../types/brew";
 import styles from "./BrewDetailPage.module.css";
+
+// グラフのライブラリ（Recharts）は大きいので、詳細画面を開いたときに初めて読み込む
+const TasteRadarChart = lazy(async () => {
+	const module = await import("../components/TasteRadarChart/TasteRadarChart");
+	return { default: module.TasteRadarChart };
+});
 
 export function BrewDetailPage() {
 	const { id } = useParams();
@@ -89,7 +94,9 @@ export function BrewDetailPage() {
 			</Section>
 
 			<Section title="味の評価">
-				<TasteRadarChart taste={brew.taste} />
+				<Suspense fallback={<div className={styles.chartPlaceholder} />}>
+					<TasteRadarChart taste={brew.taste} />
+				</Suspense>
 			</Section>
 
 			<Section title="メモ">
