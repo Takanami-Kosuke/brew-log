@@ -2,7 +2,17 @@ body {
 	font-family: var(--font-family-base);
 	font-size: var(--font-size-md);
 	line-height: 1.7;
+	/* Figma の文字スタイルの字間 2%。数字（Inter）の部分は各部品で 0 に戻す */
+	letter-spacing: 0.02em;
 	color: var(--color-text-primary);
 	background: var(--color-bg-base);
 	min-height: 100dvh;
+}
+
+/* フォーム部品はブラウザの初期設定で字間が normal になるので、親の字間を引き継がせる */
+button,
+input,
+select,
+textarea {
+	letter-spacing: inherit;
 }

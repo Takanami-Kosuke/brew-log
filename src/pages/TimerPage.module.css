@@ -46,6 +46,7 @@
 	align-items: center;
 	gap: var(--space-1);
 	font-family: var(--font-family-numeric);
+	letter-spacing: 0;
 	font-variant-numeric: tabular-nums;
 }
 
@@ -142,6 +143,7 @@
 .stepTime,
 .stepAmount {
 	font-family: var(--font-family-numeric);
+	letter-spacing: 0;
 	font-size: var(--font-size-md);
 	font-weight: 500;
 	line-height: 1.4;
