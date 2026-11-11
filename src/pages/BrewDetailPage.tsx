@@ -1,5 +1,9 @@
 import { Star } from "lucide-react";
-import { Link, useParams } from "react-router";
+import { useState } from "react";
+import { useNavigate, useParams } from "react-router";
+import { Button, ButtonLink } from "../components/Button/Button";
+import { ConfirmDialog } from "../components/ConfirmDialog/ConfirmDialog";
+import { NotFound } from "../components/NotFound/NotFound";
 import { Section } from "../components/Section/Section";
 import { VisuallyHidden } from "../components/VisuallyHidden/VisuallyHidden";
 import { useBrews } from "../hooks/useBrews";
@@ -9,19 +13,18 @@ import styles from "./BrewDetailPage.module.css";
 
 export function BrewDetailPage() {
 	const { id } = useParams();
-	const { getBrew } = useBrews();
+	const { getBrew, deleteBrew } = useBrews();
+	const navigate = useNavigate();
+	const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
 	const brew = id ? getBrew(id) : undefined;
 
-	if (!brew) {
-		return (
-			<div className={styles.notFound}>
-				<h1 className={styles.notFoundTitle}>記録が見つかりません</h1>
-				<p>削除されたか、URLが間違っている可能性があります。</p>
-				<Link to="/" className={styles.backLink}>
-					記録一覧に戻る
-				</Link>
-			</div>
-		);
+	if (!brew) return <NotFound />;
+
+	function handleDelete() {
+		if (!brew) return;
+		deleteBrew(brew.id);
+		// 削除した記録の詳細へ「戻る」で戻れないよう、履歴を置き換える
+		navigate("/", { replace: true });
 	}
 
 	return (
@@ -98,6 +101,24 @@ export function BrewDetailPage() {
 			<Section title="メモ">
 				{brew.memo ? <p className={styles.memo}>{brew.memo}</p> : <p className={styles.memoEmpty}>メモはありません</p>}
 			</Section>
+
+			<div className={styles.actions}>
+				<ButtonLink to={`/brews/${brew.id}/edit`} variant="secondary">
+					編集する
+				</ButtonLink>
+				<Button variant="danger" onClick={() => setIsDeleteDialogOpen(true)}>
+					削除する
+				</Button>
+			</div>
+
+			<ConfirmDialog
+				open={isDeleteDialogOpen}
+				title="この記録を削除しますか？"
+				message={`「${brew.beanName}」の記録を削除します。この操作は取り消せません。`}
+				confirmLabel="削除する"
+				onConfirm={handleDelete}
+				onCancel={() => setIsDeleteDialogOpen(false)}
+			/>
 		</div>
 	);
 }

@@ -1,0 +1,37 @@
+.root {
+	width: min(100% - var(--space-8), 342px);
+	padding: var(--space-6);
+	border: 1px solid var(--color-border-default);
+	border-radius: var(--radius-lg);
+	background: var(--color-bg-surface);
+	color: var(--color-text-primary);
+}
+
+/* 背景を暗くする。色のトークンを半透明にして使う */
+.root::backdrop {
+	background: color-mix(in srgb, var(--color-text-primary) 40%, transparent);
+}
+
+.root[open] {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-3);
+}
+
+.title {
+	font-size: var(--font-size-lg);
+	font-weight: 700;
+	line-height: 1.5;
+}
+
+.message {
+	font-size: var(--font-size-sm);
+	line-height: 1.7;
+}
+
+.actions {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: var(--space-3);
+	padding-top: var(--space-3);
+}
