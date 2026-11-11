@@ -1,0 +1,29 @@
+.root {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-5);
+}
+
+/* 2つの入力欄を横に並べる */
+.row {
+	display: grid;
+	/* minmax(0, 1fr) にしないと、入力欄の最小幅のせいで列がはみ出す */
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	align-items: start;
+	gap: var(--space-3);
+}
+
+/* 保存ボタンの帯。画面下に貼り付け、main の余白を打ち消して横幅いっぱいに広げる */
+.footer {
+	position: sticky;
+	bottom: 0;
+	margin-inline: calc(var(--space-6) * -1);
+	margin-bottom: calc(var(--space-5) * -1);
+	padding: var(--space-4) var(--space-6);
+	border-top: 1px solid var(--color-border-default);
+	background: var(--color-bg-surface);
+}
+
+.submit {
+	width: 100%;
+}

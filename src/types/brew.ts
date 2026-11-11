@@ -26,7 +26,8 @@ export const GRIND_SIZE_LABELS: Record<GrindSize, string> = {
 	coarse: "粗挽き",
 };
 
-export type TasteScore = 1 | 2 | 3 | 4 | 5;
+export const TASTE_SCORES = [1, 2, 3, 4, 5] as const;
+export type TasteScore = (typeof TASTE_SCORES)[number];
 
 export type Taste = {
 	acidity: TasteScore; // 酸味
@@ -54,3 +55,12 @@ export type Brew = {
 
 // フォームから受け取る形。id と createdAt は保存するときに自動で付ける
 export type BrewInput = Omit<Brew, "id" | "createdAt">;
+
+// 味の5項目。フォーム・詳細・レーダーチャートで同じ順番に並べる
+export const TASTE_ITEMS = [
+	{ key: "acidity", label: "酸味" },
+	{ key: "bitterness", label: "苦味" },
+	{ key: "sweetness", label: "甘味" },
+	{ key: "body", label: "コク" },
+	{ key: "aftertaste", label: "後味" },
+] as const satisfies readonly { key: keyof Taste; label: string }[];

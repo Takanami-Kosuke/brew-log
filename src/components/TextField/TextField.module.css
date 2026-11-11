@@ -40,3 +40,14 @@
 	color: var(--color-text-secondary);
 	font-size: var(--font-size-sm);
 }
+
+/* エラー用の枠線色のトークンが無いため、文字のエラー色を使う */
+.boxError {
+	border-color: var(--color-text-danger);
+}
+
+.error {
+	color: var(--color-text-danger);
+	font-size: var(--font-size-xs);
+	line-height: 1.5;
+}
