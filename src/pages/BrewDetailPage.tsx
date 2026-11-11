@@ -5,10 +5,11 @@ import { Button, ButtonLink } from "../components/Button/Button";
 import { ConfirmDialog } from "../components/ConfirmDialog/ConfirmDialog";
 import { NotFound } from "../components/NotFound/NotFound";
 import { Section } from "../components/Section/Section";
+import { TasteRadarChart } from "../components/TasteRadarChart/TasteRadarChart";
 import { VisuallyHidden } from "../components/VisuallyHidden/VisuallyHidden";
 import { useBrews } from "../hooks/useBrews";
 import { averageScore, formatBrewTime, formatDate, formatRatio } from "../lib/format";
-import { BREW_METHOD_LABELS, GRIND_SIZE_LABELS, ROAST_LEVEL_LABELS, TASTE_ITEMS } from "../types/brew";
+import { BREW_METHOD_LABELS, GRIND_SIZE_LABELS, ROAST_LEVEL_LABELS } from "../types/brew";
 import styles from "./BrewDetailPage.module.css";
 
 export function BrewDetailPage() {
@@ -88,14 +89,7 @@ export function BrewDetailPage() {
 			</Section>
 
 			<Section title="味の評価">
-				<dl className={styles.tasteList}>
-					{TASTE_ITEMS.map((item) => (
-						<div key={item.key} className={styles.tasteItem}>
-							<dt>{item.label}</dt>
-							<dd className={styles.tasteScore}>{brew.taste[item.key]}</dd>
-						</div>
-					))}
-				</dl>
+				<TasteRadarChart taste={brew.taste} />
 			</Section>
 
 			<Section title="メモ">

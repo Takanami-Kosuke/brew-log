@@ -1,9 +1,13 @@
-import type { ComponentProps } from "react";
+import type { ReactNode } from "react";
 import styles from "./VisuallyHidden.module.css";
 
-// 画面には表示しないが、読み上げソフトには読ませる
-export function VisuallyHidden({ className, ...props }: ComponentProps<"span">) {
-	const classNames = [styles.root, className].filter(Boolean).join(" ");
+type VisuallyHiddenProps = {
+	// 中に <dl> などのブロック要素を入れるときは "div" にする
+	as?: "span" | "div";
+	children: ReactNode;
+};
 
-	return <span className={classNames} {...props} />;
+// 画面には表示しないが、読み上げソフトには読ませる
+export function VisuallyHidden({ as: Tag = "span", children }: VisuallyHiddenProps) {
+	return <Tag className={styles.root}>{children}</Tag>;
 }

@@ -1,0 +1,26 @@
+.root {
+	display: flex;
+	justify-content: center;
+}
+
+.chart {
+	width: 100%;
+	max-width: 300px;
+}
+
+/* Recharts が描く線の色は、CSS で上書きしてトークンの色にする（:global は Recharts 側のクラス名） */
+.chart :global(.recharts-polar-grid) :is(line, path, polygon) {
+	stroke: var(--color-chart-grid);
+}
+
+.chart :global(.recharts-radar-polygon) path {
+	fill: var(--color-chart-fill);
+	fill-opacity: 0.3;
+	stroke: var(--color-text-accent);
+	stroke-width: 2;
+}
+
+.label {
+	fill: var(--color-text-primary);
+	font-size: var(--font-size-xs);
+}
