@@ -23,6 +23,58 @@
 	font-size: var(--font-size-xs);
 }
 
+.filter {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-3);
+}
+
+.chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-2);
+}
+
+.sort {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: var(--space-2);
+	color: var(--color-text-secondary);
+	font-size: var(--font-size-xs);
+	line-height: 1.5;
+}
+
+/* 文字を伸ばして、アイコンを右端に寄せる */
+.sortText {
+	flex: 1;
+}
+
+.sortIcon {
+	color: var(--color-text-primary);
+}
+
+/* 中身は読み上げ専用の文字だけ。横並びの計算から外す */
+.sortLabel {
+	position: absolute;
+}
+
+/* 行全体に透明の <select> を重ねる。上下に広げて押せる範囲を44pxにする */
+.sortSelect {
+	position: absolute;
+	inset: -12px 0;
+	width: 100%;
+	opacity: 0;
+	cursor: pointer;
+}
+
+/* select は透明なので、フォーカスの枠は行のほうに出す */
+.sort:has(.sortSelect:focus-visible) {
+	outline: 2px solid var(--color-border-focus);
+	outline-offset: 4px;
+	border-radius: var(--radius-sm);
+}
+
 .list {
 	display: flex;
 	flex-direction: column;
