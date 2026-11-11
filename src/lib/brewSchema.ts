@@ -106,3 +106,24 @@ export function toBrewFormValues(brew: Brew): BrewFormValues {
 		memo: brew.memo,
 	};
 }
+
+// タイマーから渡された URL（?method=handDrip&brewTime=150 など）を、新規フォームの初期値にする。
+// 知らない値や数字でない値は無視して、空のフォームの値を使う
+export function brewFormValuesFromSearchParams(params: URLSearchParams): BrewFormValues {
+	const values: BrewFormValues = { ...emptyBrewFormValues, taste: { ...emptyBrewFormValues.taste } };
+
+	const method = BREW_METHODS.find((value) => value === params.get("method"));
+	if (method) values.method = method;
+
+	const isNumber = (value: string | null): value is string => value !== null && /^\d+(\.\d+)?$/.test(value);
+	const beanWeight = params.get("beanWeight");
+	const waterAmount = params.get("waterAmount");
+	const waterTemp = params.get("waterTemp");
+	const brewTime = params.get("brewTime");
+	if (isNumber(beanWeight)) values.beanWeight = beanWeight;
+	if (isNumber(waterAmount)) values.waterAmount = waterAmount;
+	if (isNumber(waterTemp)) values.waterTemp = waterTemp;
+	if (isNumber(brewTime)) values.brewTime = formatBrewTime(Math.floor(Number(brewTime)));
+
+	return values;
+}

@@ -41,3 +41,12 @@
 	border-color: var(--color-border-default);
 	color: var(--color-text-danger);
 }
+
+/* 押せない状態。色を薄くして、ホバーの色も変えない */
+.root:disabled {
+	opacity: 0.4;
+}
+
+.primary:disabled {
+	background: var(--color-bg-accent);
+}
