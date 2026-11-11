@@ -1,13 +1,16 @@
-import { useNavigate } from "react-router";
+import { useNavigate, useSearchParams } from "react-router";
 import { BrewForm } from "../components/BrewForm/BrewForm";
 import { VisuallyHidden } from "../components/VisuallyHidden/VisuallyHidden";
 import { useBrews } from "../hooks/useBrews";
-import { emptyBrewFormValues } from "../lib/brewSchema";
+import { brewFormValuesFromSearchParams } from "../lib/brewSchema";
 import type { BrewFormOutput } from "../lib/brewSchema";
 
 export function BrewFormPage() {
 	const { addBrew } = useBrews();
 	const navigate = useNavigate();
+	// タイマーから来たときは、URL に入っている抽出条件と時間を初期値にする
+	const [searchParams] = useSearchParams();
+	const defaultValues = brewFormValuesFromSearchParams(searchParams);
 
 	function handleSubmit(input: BrewFormOutput) {
 		const brew = addBrew(input);
@@ -21,7 +24,7 @@ export function BrewFormPage() {
 			<h1>
 				<VisuallyHidden>記録する</VisuallyHidden>
 			</h1>
-			<BrewForm defaultValues={{ ...emptyBrewFormValues }} submitLabel="保存する" onSubmit={handleSubmit} />
+			<BrewForm defaultValues={defaultValues} submitLabel="保存する" onSubmit={handleSubmit} />
 		</>
 	);
 }
