@@ -22,3 +22,9 @@ export function averageScore(taste: Taste): string {
 	const sum = acidity + bitterness + sweetness + body + aftertaste;
 	return (sum / 5).toFixed(1);
 }
+
+// 豆の量と湯量から比率を作る（15g・240ml → "1:16"）
+export function formatRatio(beanWeight: number, waterAmount: number): string {
+	const ratio = Math.round((waterAmount / beanWeight) * 10) / 10;
+	return `1:${ratio}`;
+}
