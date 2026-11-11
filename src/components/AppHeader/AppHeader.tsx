@@ -2,18 +2,31 @@ import { ChevronLeft, Coffee, Timer } from "lucide-react";
 import { Link, useLocation } from "react-router";
 import styles from "./AppHeader.module.css";
 
-function getTitle(pathname: string) {
-	if (pathname === "/brews/new") return "記録する";
-	if (pathname.startsWith("/brews/")) return "記録の詳細";
-	if (pathname === "/timer") return "抽出タイマー";
+type SubPage = {
+	title: string;
+	backTo: string;
+	backLabel: string;
+};
+
+// URL から、ヘッダーに出すページ名と「戻る」の行き先を決める。ホームなら null
+function getSubPage(pathname: string): SubPage | null {
+	const toList = { backTo: "/", backLabel: "一覧に戻る" };
+
+	if (pathname === "/brews/new") return { title: "記録する", ...toList };
+	if (pathname === "/timer") return { title: "抽出タイマー", ...toList };
+
+	const editMatch = pathname.match(/^\/brews\/([^/]+)\/edit$/);
+	if (editMatch) return { title: "記録を編集", backTo: `/brews/${editMatch[1]}`, backLabel: "詳細に戻る" };
+
+	if (pathname.startsWith("/brews/")) return { title: "記録の詳細", ...toList };
 	return null;
 }
 
 export function AppHeader() {
 	const { pathname } = useLocation();
-	const title = getTitle(pathname);
+	const subPage = getSubPage(pathname);
 
-	if (title === null) {
+	if (subPage === null) {
 		return (
 			<header className={styles.root}>
 				<Link to="/" className={styles.brand}>
@@ -29,10 +42,10 @@ export function AppHeader() {
 
 	return (
 		<header className={styles.root}>
-			<Link to="/" className={styles.iconLink} aria-label="一覧に戻る">
+			<Link to={subPage.backTo} className={styles.iconLink} aria-label={subPage.backLabel}>
 				<ChevronLeft aria-hidden="true" />
 			</Link>
-			<p className={styles.title}>{title}</p>
+			<p className={styles.title}>{subPage.title}</p>
 			<span className={styles.spacer} />
 		</header>
 	);

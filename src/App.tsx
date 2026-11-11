@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router";
 import { AppLayout } from "./layouts/AppLayout/AppLayout";
 import { BrewDetailPage } from "./pages/BrewDetailPage";
+import { BrewEditPage } from "./pages/BrewEditPage";
 import { BrewFormPage } from "./pages/BrewFormPage";
 import { BrewListPage } from "./pages/BrewListPage";
 import { TimerPage } from "./pages/TimerPage";
@@ -12,6 +13,7 @@ function App() {
 				<Route index element={<BrewListPage />} />
 				<Route path="brews/new" element={<BrewFormPage />} />
 				<Route path="brews/:id" element={<BrewDetailPage />} />
+				<Route path="brews/:id/edit" element={<BrewEditPage />} />
 				<Route path="timer" element={<TimerPage />} />
 			</Route>
 		</Routes>

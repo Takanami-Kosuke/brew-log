@@ -129,26 +129,8 @@
 	line-height: 1.7;
 }
 
-.notFound {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
+.actions {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
 	gap: var(--space-3);
-	font-size: var(--font-size-sm);
-}
-
-.notFoundTitle {
-	font-size: var(--font-size-xl);
-	font-weight: 700;
-	line-height: 1.4;
-}
-
-.backLink {
-	color: var(--color-text-accent);
-	text-decoration: underline;
-}
-
-.backLink:focus-visible {
-	outline: 2px solid var(--color-border-focus);
-	outline-offset: 2px;
 }

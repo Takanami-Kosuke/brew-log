@@ -21,7 +21,9 @@ export function useBrews() {
 	}
 
 	function updateBrew(id: string, input: BrewInput): void {
-		commit(brews.map((brew) => (brew.id === id ? { ...brew, ...input } : brew)));
+		// { ...brew, ...input } だと、空にした任意項目（shop）に古い値が残る。
+		// 入力値をそのまま使い、id と作成日時だけ元の記録から引き継ぐ
+		commit(brews.map((brew) => (brew.id === id ? { ...input, id: brew.id, createdAt: brew.createdAt } : brew)));
 	}
 
 	function deleteBrew(id: string): void {
