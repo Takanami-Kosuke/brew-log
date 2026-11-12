@@ -1,10 +1,11 @@
 .root {
-	max-width: 480px;
 	min-height: 100dvh;
-	margin-inline: auto;
 	background: var(--color-bg-base);
 }
 
+/* 本文は幅480pxの列に収める。ヘッダーは画面の幅いっぱいに広げ、中身だけこの列にそろえる */
 .main {
+	max-width: 480px;
+	margin-inline: auto;
 	padding: var(--space-5) var(--space-6);
 }

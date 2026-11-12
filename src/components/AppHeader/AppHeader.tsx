@@ -29,24 +29,28 @@ export function AppHeader() {
 	if (subPage === null) {
 		return (
 			<header className={styles.root}>
-				<Link to="/" className={styles.brand}>
-					<Coffee aria-hidden="true" />
-					<span className={styles.brandName}>Brew Log</span>
-				</Link>
-				<Link to="/timer" className={styles.iconLink} aria-label="抽出タイマー">
-					<Timer aria-hidden="true" />
-				</Link>
+				<div className={styles.inner}>
+					<Link to="/" className={styles.brand}>
+						<Coffee aria-hidden="true" />
+						<span className={styles.brandName}>Brew Log</span>
+					</Link>
+					<Link to="/timer" className={styles.iconLink} aria-label="抽出タイマー">
+						<Timer aria-hidden="true" />
+					</Link>
+				</div>
 			</header>
 		);
 	}
 
 	return (
 		<header className={styles.root}>
-			<Link to={subPage.backTo} className={styles.iconLink} aria-label={subPage.backLabel}>
-				<ChevronLeft aria-hidden="true" />
-			</Link>
-			<p className={styles.title}>{subPage.title}</p>
-			<span className={styles.spacer} />
+			<div className={styles.inner}>
+				<Link to={subPage.backTo} className={styles.iconLink} aria-label={subPage.backLabel}>
+					<ChevronLeft aria-hidden="true" />
+				</Link>
+				<p className={styles.title}>{subPage.title}</p>
+				<span className={styles.spacer} />
+			</div>
 		</header>
 	);
 }
