@@ -33,6 +33,7 @@
 | アイコン | lucide-react | Figma で使ったアイコンと同じセット |
 | テスト | Vitest + Testing Library | フック・入力チェック・フォームの操作をテスト |
 | CI | GitHub Actions | プッシュのたびに lint・型チェック・テスト・ビルドを実行 |
+| 公開 | Cloudflare Workers（静的アセット） | サーバー処理が無いので、ビルドしたファイルを配信するだけで動く。`/brews/:id` などの URL を直接開いても 404 にならないよう、[`wrangler.jsonc`](wrangler.jsonc) で SPA として設定 |
 
 ## 設計で工夫した点
 
@@ -89,6 +90,8 @@ npm run lint     # ESLint
 npx tsc -b       # 型チェック
 npm run build    # 本番ビルド
 ```
+
+公開版と同じ Cloudflare Workers の環境で確かめるときは、ビルドしてから `npx wrangler dev` を実行します。
 
 ## 今後やりたいこと
 
