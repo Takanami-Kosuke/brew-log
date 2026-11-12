@@ -3,6 +3,8 @@
 自分で淹れたコーヒーの抽出条件と味を記録する Web アプリです。
 豆の量・湯温・抽出時間と、酸味や苦味などの評価を残し、レーダーチャートで味を振り返れます。抽出タイマーで計った時間は、そのまま記録フォームに入ります。
 
+**公開URL：** https://brew-log.takanami-1995.workers.dev （スマートフォンでの利用を想定した画面です。記録はブラウザの中だけに保存されます）
+
 <p>
   <img src="docs/screenshots/01-list.png" alt="記録一覧の画面" width="200">
   <img src="docs/screenshots/02-form.png" alt="記録フォームの画面" width="200">
