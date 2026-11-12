@@ -25,3 +25,6 @@ dist-ssr
 
 # Claude Code用のメモ（手元だけで使う）
 CLAUDE.md
+
+# Cloudflare Workers のローカル実行で作られるファイル
+.wrangler

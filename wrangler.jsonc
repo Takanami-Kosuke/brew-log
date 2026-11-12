@@ -1,0 +1,11 @@
+// Cloudflare Workers の設定。サーバー処理は無く、ビルドした dist/ をそのまま配信する
+{
+	"$schema": "./node_modules/wrangler/config-schema.json",
+	"name": "brew-log",
+	"compatibility_date": "2026-11-01",
+	"assets": {
+		"directory": "./dist",
+		// /brews/abc などを直接開いたときも index.html を返し、画面の切り替えは React Router に任せる
+		"not_found_handling": "single-page-application"
+	}
+}
